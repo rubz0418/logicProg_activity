@@ -1,0 +1,80 @@
+IT 405L - LOGIC PROGRAMMING
+ACTIVITY 1: LOGICAL OPERATORS AND AN EXPRESSION EVALUATOR
+
+
+STEP 1 - PYTHON VERSION
+
+Python 3.14.8
+
+
+STEP 4 - LOGICAL OPERATOR TESTS
+
+=== MY_AND ===
+True True True
+True False False
+False True False
+False False False
+
+=== MY_OR ===
+True True True
+True False True
+False True True
+False False False
+
+=== MY_NOT ===
+True False
+False True
+
+=== MY_IMPLIES ===
+True True True
+True False False
+False True True
+False False True
+
+
+STEP 6 - EVALUATOR TESTS
+
+=== EVALUATOR TESTS ===
+Test 1: ('and', True, False) = False
+Test 2: ('or', True, False) = True
+Test 3: ('not', False) = True
+Test 4: ('implies', True, False) = False
+Test 5: ('and', True, ('not', False)) = True
+Test 6: ('implies', ('or', False, True), False) = False
+
+
+STEP 7 - EXPECTED FAILURE
+
+Traceback (most recent call last):
+  File "C:\Users\PC\it405\logic_ops.py", line 142, in <module>
+    print(evaluate(("or", True, ("and", 1/0, False))))
+                                        ~^~
+ZeroDivisionError: division by zero
+
+
+STEP 8 - UNBRACKETED EXPRESSION
+
+Expression:
+not True implies True or False and not True
+
+Tuple:
+('implies', ('not', True), ('or', True, ('and', False, ('not', True))))
+
+Value: True
+
+
+STEP 9 - ONE PAIR OF BRACKETS
+
+Expression:
+not (True implies True) or False and not True
+
+Tuple:
+('or', ('not', ('implies', True, True)), ('and', False, ('not', True)))
+
+Value: False
+
+
+
+The operators that made the difference were not and implies because not has a higher precedence than implies. 
+In the expression without brackets, not was evaluated first, but when I added the brackets around (True implies True), the implication inside the brackets was evaluated first. 
+Because of this, the answer changed from True to False.

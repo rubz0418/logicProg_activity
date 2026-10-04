@@ -1,0 +1,4 @@
+Step 7 failed because the expression tried to evaluate 1/0, which caused a ZeroDivisionError. 
+My evaluator evaluates both operands before applying the logical operator, so it still reaches the division by zero. 
+Python's own or operator uses short-circuit evaluation, so if the left side is already True, it does not need to evaluate the right side. 
+This shows that my evaluator uses eager evaluation, while Python's built-in logical operators can use lazy or short-circuit evaluation.
