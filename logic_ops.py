@@ -2,9 +2,8 @@
 # Activity 1: Logical Operators and an Expression Evaluator
 
 
-# --------------------------------------------------
 # STEP 2 - Logical Operators
-# --------------------------------------------------
+
 
 def my_and(a, b):
     if a == True:
@@ -22,9 +21,9 @@ def my_not(a):
     return a == False
 
 
-# --------------------------------------------------
+
 # STEP 3 - Implication
-# --------------------------------------------------
+
 
 def my_implies(a, b):
     if a == True:
@@ -32,9 +31,9 @@ def my_implies(a, b):
     return True
 
 
-# --------------------------------------------------
+
 # STEP 5 - Expression Evaluator
-# --------------------------------------------------
+
 
 def evaluate(expr):
     # Base cases
@@ -69,9 +68,9 @@ def evaluate(expr):
     raise ValueError("unknown operator: %r" % op)
 
 
-# --------------------------------------------------
+
 # STEP 4 - Test all logical operators
-# --------------------------------------------------
+
 
 print("=== MY_AND ===")
 print(True, True, my_and(True, True))
@@ -104,9 +103,9 @@ print(False, False, my_implies(False, False))
 print()
 
 
-# --------------------------------------------------
+
 # STEP 6 - Test the evaluator
-# --------------------------------------------------
+
 
 print("=== EVALUATOR TESTS ===")
 
