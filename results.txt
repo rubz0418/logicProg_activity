@@ -1,0 +1,63 @@
+python version: Python 3.14.8
+
+EXPECTED FAILURE
+Traceback (most recent call last):
+  File "C:\Users\PC\it405\logic_ops.py", line 130, in <module>
+    print(evaluate(("or", True, ("and", 1/0, False))))
+                                        ~^~
+ZeroDivisionError: division by zero
+
+
+
+=== MY_AND ===
+True True True
+True False False
+False True False
+False False False
+
+=== MY_OR ===
+True True True
+True False True
+False True True
+False False False
+
+=== MY_NOT ===
+True False
+False True
+
+=== MY_IMPLIES ===
+True True True
+True False False
+False True True
+False False True
+
+=== EVALUATOR TESTS ===
+Test 1: ('and', True, False) = False
+Test 2: ('or', True, False) = True
+Test 3: ('not', False) = True
+Test 4: ('implies', True, False) = False
+Test 5: ('and', True, ('not', False)) = True
+Test 6: ('implies', ('or', False, True), False) = False
+
+=== EXPECTED FAILURE ===
+
+=== WITH BRACKETS ===
+Expression: (((not True implies True) or False) and not True)
+Value: False
+
+=== WITHOUT BRACKETS ===
+Expression: not True implies True or False and not True
+Value: True
+
+=== ONE PAIR OF BRACKETS ===
+Expression: not (True implies True) or False and not True
+Value: False
+Was one pair enough to change the answer? Yes
+
+
+
+=== PERSONALIZED EXPR TEST ===
+EXPR: ('and', ('implies', ('implies', True, True), ('or', False, True)), ('not', ('or', True, True)))
+Result: False
+
+
